@@ -269,7 +269,8 @@ class App extends Component {
           paymentMethodTypes.push("interac_present");
         }
         let createIntentResponse = await this.client.createPaymentIntent({
-          amount: this.state.chargeAmount + this.state.taxAmount,
+          amount: this.state.chargeAmount,
+          application_fee_amount: this.state.taxAmount,
           currency: "aud",
           description: "Test Charge",
           capture_method: "manual",
